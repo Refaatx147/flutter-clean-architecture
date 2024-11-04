@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_arch_project/core/errors/failure.dart';
+import 'package:clean_arch_project/core/params/params.dart';
 import 'package:clean_arch_project/features/user/domain/entities/user_entity.dart';
 import 'package:clean_arch_project/features/user/domain/repositories/user_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -10,7 +11,7 @@ class GetUser {
     required this.userRepository,
   });
 
-  Future<Either<Failure, UserEntity>> call() {
-    return userRepository.getUser();
+  Future<Either<Failure, UserEntity>> call({required UserParams params}) {
+    return userRepository.getUser(params:params );
   }
 }
